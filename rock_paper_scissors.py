@@ -1,7 +1,7 @@
 import random
 
 print('...ROCK...\n...PAPER...\n...SCISSORS...')
-first_player = input('Make your choice. Rock, paper or scissors... ')
+first_player = input('Make your choice. Rock, paper or scissors... ').lower()
 choice = ['rock', 'paper', 'scissors']
 random_num = random.randint(0, 2)
 second_player = choice[random_num]
