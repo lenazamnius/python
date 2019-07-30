@@ -1,30 +1,47 @@
-import random
+from random import randint
 
-print('...ROCK...\n...PAPER...\n...SCISSORS...')
-first_player = input('Make your choice. Rock, paper or scissors... ').lower()
+
 choice = ['rock', 'paper', 'scissors']
-random_num = random.randint(0, 2)
-second_player = choice[random_num]
-print(f'Second player chose {second_player}')
+human_score = 0
+computer_score = 0
+count = 1
+while True:
+    print(f'Score between human and computer is {human_score}:{computer_score}\n')
+    print(f'Round {count}')
+    print('...ROCK...\n...PAPER...\n...SCISSORS...')
+    human = input('Make your choice human being. Rock, paper or scissors... ').lower()
+    computer = choice[randint(0, 2)]
+    print(f'Computer picked {computer}')
 
-if (first_player in choice) and (second_player in choice):
-    if first_player == second_player:
+    if human == computer:
         print("It's a tie!")
     else:
-        if first_player == choice[0]:
-            if second_player == choice[1]:
-                print('Second player win!!!')
+        if human == choice[0]:
+            if computer == choice[1]:
+                print('Computer succeed!!!')
+                computer_score += 1
             else:
-                print('You win!!!')
-        elif first_player == choice[1]:
-            if second_player == choice[0]:
-                print('You win!!!')
+                print('Human succeed!!!')
+                human_score += 1
+        elif human == choice[1]:
+            if computer == choice[0]:
+                print('Human succeed!!!')
+                human_score += 1
             else:
-                print('Second player win!!!')
-        elif first_player == choice[2]:
-            if second_player == choice[0]:
-                print('Second player win!!!')
+                print('Computer succeed!!!')
+                computer_score += 1
+        elif human == choice[2]:
+            if computer == choice[0]:
+                print('Computer succeed!!!')
+                computer_score += 1
             else:
-                print('You win!!!')
+                print('Human succeed!!!')
+                human_score += 1
+    count += 1
+    if human_score == 3 or computer_score == 3:
+        break
+
+if human_score > computer_score:
+    print('Human is the best!')
 else:
-    print('Choose only between rock, paper or scissors, please)')
+    print('Human was defeated!')
