@@ -39,9 +39,15 @@ while True:
                 human_score += 1
     count += 1
     if human_score == 3 or computer_score == 3:
-        break
-
-if human_score > computer_score:
-    print('Human is the best!')
-else:
-    print('Human was defeated!')
+        repeat_game = input('Do you want to keep playing? (y/n) -> ')
+        if repeat_game == 'y':
+            human_score = 0
+            computer_score = 0
+            count = 1
+        elif repeat_game == 'n':
+            if human_score > computer_score:
+                print('Human is the best!')
+            else:
+                print('Human was defeated!')
+            print('Thanks for playing. Bye)')
+            break
